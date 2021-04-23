@@ -104,7 +104,11 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # FuzzyFinder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ $(command -v "fzf") ]; then
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+fi
 
 # Push the current directory visited onto the stack
 setopt AUTO_PUSHD
@@ -123,7 +127,7 @@ rm -f ~/.zcompdump; compinit
 # VIM Cursor on Shell
 autoload -Uz cursor_mode && cursor_mode
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Vim keybindings in autocomplete
 zmodload zsh/complist

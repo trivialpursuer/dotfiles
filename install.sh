@@ -3,6 +3,9 @@
 ########
 # nvim #
 ########
+git clone https://github.com/nanotech/jellybeans.vim "$XDG_CONFIG_HOME/nvim/jellybeans.vim"
+ln -s "$XDG_CONFIG_HOME/nvim/jellybeans.vim/colors" "$XDG_CONFIG_HOME/nvim/colors"
+
 mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
 
@@ -25,6 +28,14 @@ nvim --noplugin +PlugUpdate +qa
 ######
 # rm -rf "$XDG_CONFIG_HOME/i3"
 # ln -s "$DOTFILES/i3" "$XDG_CONFIG_HOME"
+
+###########
+# thefuck #
+###########
+if ! [ -d ${HOME}/projects/thefuck ]; then
+  git clone https://github.com/nvbn/thefuck ${HOME}/projects/thefuck
+fi
+pip3 install ${HOME}/projects}/thefuck
 
 #######
 # zsh #
@@ -62,3 +73,7 @@ ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
   && git clone https://github.com/tmux-plugins/tpm \
   "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
+#################
+# diff-so-fancy #
+#################
+git config --global core.pager "diff-so-fancy | less --tabs=2 -RFX"

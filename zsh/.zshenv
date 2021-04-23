@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 #Dotfiles
-export DOTFILES="$HOME/projects/dotfiles"
+export DOTFILES="$HOME/dotfiles"
 
 #XDG for Dotfiles
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -15,7 +15,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/trevor/.local/bin:/snap/bin:/usr/lib/llvm/9/bin:/home/trevor/.cargo/bin"
+export PATH="/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:$HOME/.local/bin:/snap/bin:/usr/lib/llvm/9/bin:$HOME/.cargo/bin:$HOME/.local/bin"
 
 # Choose 256-color support if available
 if [ -e /usr/lib/terminfo/x/xterm-256color ]; then

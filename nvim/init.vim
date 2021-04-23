@@ -20,7 +20,8 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
   Plug 'simeji/winresizer'
 call plug#end()
 
-set clipboard+=unnamedplus
+set clipboard+=unnamed,unnamedplus
+
 
 " Lightline
 let g:lightline = {
