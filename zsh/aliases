@@ -5,4 +5,5 @@ alias j=jobs
 alias rmtmp='rm $(find . -name "*~"); rm $(find . -name "*.swo"); rm $(find . -name "*.swp"); rm $(find . -name "*.orig")'
 alias rmdock='sudo docker rm $(docker ps -a -q) && sudo docker rmi $(docker images -q)'
 alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
+#alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+for index ({0..9}) alias "$index"="cd +${index}"; unset index

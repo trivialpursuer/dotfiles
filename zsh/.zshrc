@@ -102,7 +102,6 @@ eval $(thefuck --alias)
 #VIM Key bindings
 bindkey -v
 export KEYTIMEOUT=1
-autoload -Uz cursor_mode && cursor_mode
 
 # FuzzyFinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -115,9 +114,14 @@ setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
 
 # External scripts
+source "$XDG_CONFIG_HOME/zsh/scripts.sh"
+
 fpath=($ZDOTDIR/external $fpath)
 fpath=($HOME/projects/zsh-completions/src $fpath)
 rm -f ~/.zcompdump; compinit
+
+# VIM Cursor on Shell
+autoload -Uz cursor_mode && cursor_mode
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -135,3 +139,9 @@ bindkey -M vicmd v edit-command-line
 
 # Ez navigation
 source "$XDG_CONFIG_HOME/zsh/external/bd.zsh"
+
+# Rebind clear screen to Ctrl-g
+bindkey -r '^l'
+bindkey -r '^g'
+bindkey -s '^g' 'clear\n'
+
