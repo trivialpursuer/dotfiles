@@ -132,11 +132,6 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-up-line-or-history
 
-# Use Neovim to directly edit command line prompt
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-
 # Ez navigation
 source "$XDG_CONFIG_HOME/zsh/external/bd.zsh"
 
