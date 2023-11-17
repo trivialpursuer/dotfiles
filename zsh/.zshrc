@@ -5,7 +5,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
+# ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,11 +65,11 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# plugins=(git)
 
 # User configuration
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -99,12 +99,25 @@ function com() {
 
 eval $(thefuck --alias)
 
+
 #VIM Key bindings
 bindkey -v
 export KEYTIMEOUT=1
 
+# Yank to the system clipboard
+function vi-yank-pbcopy {
+  zle vi-yank
+  echo "$CUTBUFFER" | pbcopy -i
+}
+zle -N vi-yank-pbcopy
+bindkey -M vicmd 'y' vi-yank-pbcopy
+
 # FuzzyFinder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#if [ $(command -v "fzf") ]; then
+  #source /opt/homebrew/share/fzf/completion.zsh
+  #source /opt/homebrew/share/fzf/key-bindings.zsh
+#fi
 
 # Push the current directory visited onto the stack
 setopt AUTO_PUSHD
@@ -116,14 +129,26 @@ setopt PUSHD_SILENT
 # External scripts
 source "$XDG_CONFIG_HOME/zsh/scripts.sh"
 
-fpath=($ZDOTDIR/external $fpath)
-fpath=($HOME/projects/zsh-completions/src $fpath)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
 rm -f ~/.zcompdump; compinit
+
+fpath=($ZDOTDIR/external $fpath)
+#fpath=($HOME/projects/zsh-completions/src $fpath)
+#rm -f ~/.zcompdump; compinit
+
+#autoload -U compinit; compinit
+#_comp_options+=(globdots)
+#source ~/projects/dotfiles/zsh/external/completion.zsh
 
 # VIM Cursor on Shell
 autoload -Uz cursor_mode && cursor_mode
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Vim keybindings in autocomplete
 zmodload zsh/complist
@@ -140,3 +165,4 @@ bindkey -r '^l'
 bindkey -r '^g'
 bindkey -s '^g' 'clear\n'
 
+autoload -Uz prompt_purification_setup; prompt_purification_setup
