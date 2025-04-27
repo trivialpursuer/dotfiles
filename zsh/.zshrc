@@ -99,7 +99,6 @@ function com() {
 
 #eval $(thefuck --alias)
 
-
 #VIM Key bindings
 bindkey -v
 export KEYTIMEOUT=1

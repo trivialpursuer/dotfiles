@@ -15,7 +15,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/trevor/.local/bin:/snap/bin:/usr/lib/llvm/9/bin:/usr/local/go/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin:$HOME/bin:$HOME/Library/Android/sdk/platform-tools:/Library/TeX/texbin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/trevor/.local/bin:/snap/bin:/usr/lib/llvm/9/bin:/usr/local/go/bin:/opt/homebrew/bin:$HOME/Library/Python/3.9/bin:$HOME/bin:$HOME/Library/Android/sdk/platform-tools:/Library/TeX/texbin:$HOME/.cargo/bin"
 
 # Choose 256-color support if available
 #if [ -e /usr/lib/terminfo/x/xterm-256color ]; then
