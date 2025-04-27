@@ -97,7 +97,7 @@ function com() {
 	sudo picocom /dev/ttyUSB$1 -b115200
 }
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 
 #VIM Key bindings
@@ -141,9 +141,9 @@ fpath=($ZDOTDIR/external $fpath)
 #fpath=($HOME/projects/zsh-completions/src $fpath)
 #rm -f ~/.zcompdump; compinit
 
-#autoload -U compinit; compinit
-#_comp_options+=(globdots)
-#source ~/projects/dotfiles/zsh/external/completion.zsh
+autoload -U compinit; compinit
+_comp_options+=(globdots)
+source ~/projects/dotfiles/zsh/external/completion.zsh
 
 # VIM Cursor on Shell
 autoload -Uz cursor_mode && cursor_mode
@@ -166,3 +166,9 @@ bindkey -r '^g'
 bindkey -s '^g' 'clear\n'
 
 autoload -Uz prompt_purification_setup; prompt_purification_setup
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH="$HOME/.rbenv/bin:$PATH"

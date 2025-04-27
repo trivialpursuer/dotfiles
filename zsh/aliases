@@ -7,3 +7,4 @@ alias rmdock='sudo docker rm $(docker ps -a -q) && sudo docker rmi $(docker imag
 alias d='dirs -v'
 #alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 for index ({0..9}) alias "$index"="cd +${index}"; unset index
+alias kislog="`xcrun -sdk rtkit.internal --show-sdk-path`/usr/bin/rtk_log_decoder.py -s SYNC_PACKET -l DEBUG -c 1000000 --wall-clock -r 921600 --color --filter-sources 1-15"
