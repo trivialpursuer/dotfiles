@@ -130,7 +130,7 @@ source "$XDG_CONFIG_HOME/zsh/scripts.sh"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
+  ZSH_DISABLE_COMPFIX=true
   autoload -Uz compinit
   compinit
 fi
@@ -140,7 +140,7 @@ fpath=($ZDOTDIR/external $fpath)
 #fpath=($HOME/projects/zsh-completions/src $fpath)
 #rm -f ~/.zcompdump; compinit
 
-autoload -U compinit; compinit
+#autoload -U compinit; compinit
 _comp_options+=(globdots)
 source ~/projects/dotfiles/zsh/external/completion.zsh
 
@@ -170,4 +170,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/.cargo/bin:$PATH"
